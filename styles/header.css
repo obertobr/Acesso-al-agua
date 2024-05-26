@@ -1,0 +1,154 @@
+header {
+    position: relative;
+    width: 100vw;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+#video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    background-color: black;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.5; 
+}
+
+nav {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+    align-items: center;
+    z-index: 1;
+    gap: 15px;
+}
+
+#nav{
+    display: flex;
+    gap: 15px;
+}
+
+#nav > a {
+    color: white;
+    text-decoration: none;
+}
+
+#nav > a:hover{
+    transform: scale(0.95);
+    color: rgb(228, 228, 228);
+}
+
+nav > select {
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.257);
+    padding: 2px 7px;
+    font-size: 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    outline: none;
+}
+
+nav>select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+
+nav > select option {
+    color: black;
+    background-color: white;
+}
+
+#title {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+    gap: 30px;
+}
+
+#texts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#texts > h1 {
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-size: 40px;
+    color: rgb(252, 252, 255);
+    margin-top: 50px;
+}
+
+#texts > p {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(229, 228, 228);
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+#search{
+    display: flex;
+}
+
+#search > input {
+    outline: 0;
+    width: 300px;
+    height: 32px;
+    background-color: rgb(255, 255, 255);
+    border: 0;
+    padding: 0 10px;
+    border-radius: 20px 0px 0px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-right: 0;
+}
+
+#search > button {
+    background-color: rgb(150, 205, 247);
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 0px 20px 20px 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 0;
+}
+
+#search > button:hover {
+    background-color: rgb(140, 191, 230);
+    cursor: pointer;
+}
