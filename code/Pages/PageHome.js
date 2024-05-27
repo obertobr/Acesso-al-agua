@@ -57,11 +57,9 @@ export default class PageHome {
         navDiv.id = 'nav';
 
         const homeLink = document.createElement('a');
-        homeLink.href = '#';
         homeLink.textContent = textos[idioma].navHome;
 
         const aboutUsLink = document.createElement('a');
-        aboutUsLink.href = '#';
         aboutUsLink.textContent = textos[idioma].navSobreNos;
         aboutUsLink.addEventListener("click", () => {
             PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),Pages.SOBRE_NOS)
@@ -121,37 +119,18 @@ export default class PageHome {
         header.appendChild(titleDiv);
 
         div.appendChild(header)
-        div.appendChild(this.createPageContent(idioma,textos))
+        div.appendChild(await this.createPageContent(idioma,textos))
 
 
         return div;
     }
 
-    static createPageContent = (idioma,textos) => {
+    static createPageContent = async (idioma) => {
+        const posts = await JsonUtil.convertFileJsonByName("posts");
+
         const main = document.createElement('main');
     
-        const articlesData = [
-            {
-                imgSrc: textos[idioma].post.imgSrc,
-                headerText: textos[idioma].post.headerText,
-                dateText: textos[idioma].post.dateText,
-                bodyText: textos[idioma].post.bodyText,
-            },
-            {
-                imgSrc: textos[idioma].post.imgSrc,
-                headerText: textos[idioma].post.headerText,
-                dateText: textos[idioma].post.dateText,
-                bodyText: textos[idioma].post.bodyText,
-            },
-            {
-                imgSrc: textos[idioma].post.imgSrc,
-                headerText: textos[idioma].post.headerText,
-                dateText: textos[idioma].post.dateText,
-                bodyText: textos[idioma].post.bodyText,
-            },
-        ];
-    
-        articlesData.forEach(data => {
+        posts.forEach((data, index) => {
             const article = document.createElement('article');
     
             const img = document.createElement('img');
@@ -165,7 +144,7 @@ export default class PageHome {
             textsArticleHeader.className = 'textsArticleHeader';
     
             const h3 = document.createElement('h3');
-            h3.textContent = data.headerText;
+            h3.textContent = data[idioma].headerText;
     
             const dateP = document.createElement('p');
             dateP.textContent = data.dateText;
@@ -174,13 +153,17 @@ export default class PageHome {
             textsArticleHeader.appendChild(dateP);
     
             const bodyP = document.createElement('p');
-            bodyP.textContent = data.bodyText;
+            bodyP.textContent = data[idioma].bodyText.replace(/<[^>]*>/g, '');
     
             textsArticle.appendChild(textsArticleHeader);
             textsArticle.appendChild(bodyP);
     
             article.appendChild(img);
             article.appendChild(textsArticle);
+
+            article.addEventListener("click", () => {
+                PageUtil.carregarPost(LanguageUtil.getCurrentLanguage(),Pages.POST, index)
+            })
     
             main.appendChild(article);
         });

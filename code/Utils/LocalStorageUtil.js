@@ -2,6 +2,7 @@ export default class LocalStorageUtil {
 
     static keyLanguage = "LANGUAGE";
     static keyPage = "PAGE"
+    static keyPost = "POST"
 
     static getElementByKey = (key) => {
        return JSON.parse(localStorage.getItem(key))

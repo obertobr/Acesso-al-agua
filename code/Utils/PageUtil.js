@@ -22,6 +22,11 @@ export default class PageUtil {
         document.body.appendChild(pageHTML)
     }
 
+    static carregarPost = async (idioma,page, postId) => {
+        LocalStorageUtil.saveElement(LocalStorageUtil.keyPost, postId)
+        this.carregarPagina(idioma,page)
+    }
+
     static carregarPaginaComCurrentPage = async (idioma) => {
        await this.carregarPagina(idioma, this.getCurrentPage())
     }
