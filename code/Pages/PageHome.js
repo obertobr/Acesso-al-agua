@@ -2,6 +2,7 @@ import JsonUtil from "../Utils/JsonUtil.js";
 import LanguageUtil from "../Utils/LanguageUtil.js";
 import Languages from "../Utils/Languages.js";
 import PageUtil from "../Utils/PageUtil.js";
+import Pages from "../Utils/Pages.js";
 
 export default class PageHome {
 
@@ -59,16 +60,14 @@ export default class PageHome {
         homeLink.href = '#';
         homeLink.textContent = textos[idioma].navHome;
 
-        const projectLink = document.createElement('a');
-        projectLink.href = '#';
-        projectLink.textContent = textos[idioma].navProjeto;
-
         const aboutUsLink = document.createElement('a');
         aboutUsLink.href = '#';
         aboutUsLink.textContent = textos[idioma].navSobreNos;
+        aboutUsLink.addEventListener("click", () => {
+            PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),Pages.SOBRE_NOS)
+        })
 
         navDiv.appendChild(homeLink);
-        navDiv.appendChild(projectLink);
         navDiv.appendChild(aboutUsLink);
 
         nav.appendChild(select);

@@ -7,7 +7,8 @@ export default class LanguageUtil {
     static defaultLanguage = Languages.PORTUGUES;
 
     static setDefaultLanguage = () => {
-        LocalStorageUtil.saveElement(LocalStorageUtil.keyLanguage, this.defaultLanguage)
+        if(!LocalStorageUtil.getElementByKey(LocalStorageUtil.keyLanguage))
+            LocalStorageUtil.saveElement(LocalStorageUtil.keyLanguage, this.defaultLanguage)
     }
 
     static alterarIdioma = async (idioma) => {

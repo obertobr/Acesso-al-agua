@@ -1,0 +1,20 @@
+{
+    "portugues": {
+        "titulo": "Sobre Nós",
+         "descricao": "Somos uma equipe de alunos de Análise e Desenvolvimento de Sistemas que criamos esse blog como forma de conscientizar as pessoas.",
+         "integrantes": ["Lucas Do Prado", "Rafael Lopes", "Bruno Miranda", "Francisca Blanchard", "Jesús Muñoz"],
+        "botaoVoltar": "Voltar para Home"
+    },
+    "english": {
+        "titulo": "About Us",
+        "descricao": "We are a team of Systems Analysis and Development students who created this blog as a way to raise awareness.",
+        "integrantes": ["Lucas Do Prado", "Rafael Lopes", "Bruno Miranda", "Francisca Blanchard", "Jesús Muñoz"],
+        "botaoVoltar": "Back to Home"
+    },
+    "espanol": {
+        "titulo": "Sobre Nosotros",
+        "descricao": "Somos un equipo de estudiantes de Análisis y Desarrollo de Sistemas que creamos este blog como una forma de concienciar a las personas.",
+        "integrantes": ["Lucas Do Prado", "Rafael Lopes", "Bruno Miranda", "Francisca Blanchard", "Jesús Muñoz"],
+        "botaoVoltar": "Volver a Home"
+    }
+}

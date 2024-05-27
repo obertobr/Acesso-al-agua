@@ -7,7 +7,8 @@ export default class PageUtil {
     static defaultPage = Pages.HOME
 
     static setDefaultPage = () => {
-        LocalStorageUtil.saveElement(LocalStorageUtil.keyPage, this.defaultPage)
+        if(!LocalStorageUtil.getElementByKey(LocalStorageUtil.keyPage))
+            LocalStorageUtil.saveElement(LocalStorageUtil.keyPage, this.defaultPage)
     }
 
     static getCurrentPage = () => {
@@ -17,6 +18,7 @@ export default class PageUtil {
     static carregarPagina = async (idioma,page) => {
         document.body.innerHTML = ""
         const pageHTML = await PageController[page].getPage(idioma)
+        LocalStorageUtil.saveElement(LocalStorageUtil.keyPage, page)
         document.body.appendChild(pageHTML)
     }
 

@@ -1,0 +1,53 @@
+#aboutUsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta conforme necessário */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#aboutUs {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+#aboutUs h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+#aboutUs p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+#aboutUs ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#aboutUs ul li {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+#aboutUs button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+#aboutUs button:hover {
+    background-color: #0056b3;
+}
