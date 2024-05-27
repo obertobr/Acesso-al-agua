@@ -3,5 +3,6 @@ import PageUtil from "./Utils/PageUtil.js";
 
 PageUtil.setDefaultPage()
 LanguageUtil.setDefaultLanguage()
-await PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),PageUtil.getCurrentPage())
+
+ await PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),PageUtil.getCurrentPage())
 

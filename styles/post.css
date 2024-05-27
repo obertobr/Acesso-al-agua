@@ -1,0 +1,72 @@
+#postNav {
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.76);
+    height: 40px;
+    z-index: 2;
+}
+
+#postContainer {
+    background-color: white;
+    width: 70vw;
+    margin: 40px 15vw 0 15vw;
+    min-height: 100vh;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    padding: 0px 10px 10px 10px;
+}
+
+#postContainer > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28vw;
+    margin-bottom: 10px;
+}
+
+#postContainer > div > img {
+    position: absolute;
+    width: 70vw;
+    aspect-ratio: 10/4;
+    object-fit:cover;
+    z-index: 0;
+}
+
+#postContainer > div > h1 {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 3em;
+    max-width: 90%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    z-index: 1;
+}
+
+#postContainer > p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    #postContainer {
+        width: 100vw;
+        margin: 40px 0 0 0;
+        padding: 0px 20px 10px 20px;
+    }
+
+    #postContainer > div {
+        height: 40vw;
+    }
+
+    #postContainer > div > img  {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 800px) {
+    #postContainer > div > h1 {
+        font-size: 1.5em;
+    }
+}
