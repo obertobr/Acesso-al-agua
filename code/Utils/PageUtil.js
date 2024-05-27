@@ -6,26 +6,25 @@ export default class PageUtil {
 
     static defaultPage = Pages.HOME
 
-    static setDefaultLanguage = () => {
-        saveElement(LocalStorageUtil.keyPage, this.defaultPage)
+    static setDefaultPage = () => {
+        LocalStorageUtil.saveElement(LocalStorageUtil.keyPage, this.defaultPage)
     }
 
     static getCurrentPage = () => {
         return LocalStorageUtil.getElementByKey(LocalStorageUtil.keyPage) || ""
     }
 
-    static carregarPagina = (idioma,page) => {
-        if(!paginaIgual(page)){
-            document.body.innerHTML = ""
-            document.body.appendChild(PageController[page].getPage(idioma))
-        }
+    static carregarPagina = async (idioma,page) => {
+        document.body.innerHTML = ""
+        const pageHTML = await PageController[page].getPage(idioma)
+        document.body.appendChild(pageHTML)
     }
 
-    static carregarPaginaComCurrentPage = (idioma) => {
-        this.carregarPagina(idioma, this.getCurrentPage())
+    static carregarPaginaComCurrentPage = async (idioma) => {
+       await this.carregarPagina(idioma, this.getCurrentPage())
     }
 
-    paginaIgual = (page) => {
-        return page == getCurrentPage()
+    static paginaIgual = (page) => {
+        return page == this.getCurrentPage()
     }
 }

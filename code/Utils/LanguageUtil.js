@@ -1,18 +1,19 @@
 import Languages from "./Languages.js"
 import LocalStorageUtil from "./LocalStorageUtil.js"
+import PageUtil from "./PageUtil.js";
 
 export default class LanguageUtil {
 
-    static defaultLanguage = Languages.ENGLISH;
+    static defaultLanguage = Languages.PORTUGUES;
 
     static setDefaultLanguage = () => {
-        saveElement(LocalStorageUtil.keyLanguage, defaultLanguage)
+        LocalStorageUtil.saveElement(LocalStorageUtil.keyLanguage, this.defaultLanguage)
     }
 
-    static alterarIdioma = (idioma) => {
-        if(!idiomaIgual(idioma)){
+    static alterarIdioma = async (idioma) => {
+        if(!this.idiomaIgual(idioma)){
             LocalStorageUtil.saveElement(LocalStorageUtil.keyLanguage,idioma)
-            // recarregarPagina
+            await PageUtil.carregarPaginaComCurrentPage(idioma)
         }
     }
 
@@ -20,8 +21,8 @@ export default class LanguageUtil {
         return LocalStorageUtil.getElementByKey(LocalStorageUtil.keyLanguage) || ""
     }
 
-    idiomaIgual = (idioma) => {
-        return idioma == getCurrentLanguage()
+    static idiomaIgual = (idioma) => {
+        return idioma == this.getCurrentLanguage()
     }
 
 

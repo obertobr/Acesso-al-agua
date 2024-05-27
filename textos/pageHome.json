@@ -5,7 +5,13 @@
         "navHome": "Home",
         "navProjeto": "Projeto",
         "navSobreNos": "Sobre Nós",
-        "placeHolderSearch": "Buscar posts"
+        "placeHolderSearch": "Buscar posts",
+        "post": {
+            "imgSrc": "assets/img/torneira.jpg",
+            "headerText": "Problemas de acessibilidade no Brasil",
+            "dateText": "01/01/2024",
+            "bodyText": "O Brasil enfrenta desafios significativos na distribuição de água potável. A falta de infraestrutura e a desigualdade social agravam a situação. Muitas comunidades, especialmente em áreas rurais e periferias urbanas, não têm acesso adequado a esse recurso vital. Projetos de melhoria são essenciais para garantir que todos os brasileiros possam usufruir de água limpa e segura."
+        }
     },
     "english": {
         "titulo": "Welcome",
@@ -13,14 +19,26 @@
         "navHome": "Home",
         "navProjeto": "Project",
         "navSobreNos": "About",
-        "placeHolderSearch": "Search posts"
+        "placeHolderSearch": "Search posts",
+        "post": {
+            "imgSrc": "assets/img/torneira.jpg",
+            "headerText": "Water Accessibility Issues in Brazil",
+            "dateText": "01/01/2024",
+            "bodyText": "Brazil faces significant challenges in the distribution of potable water. Lack of infrastructure and social inequality exacerbate the situation. Many communities, especially in rural areas and urban outskirts, do not have adequate access to this vital resource. Improvement projects are essential to ensure that all Brazilians can enjoy clean and safe water."
+        }
     },
-    "espanol":{
+    "espanol": {
         "titulo": "Bienvenido",
         "subtitulo": "Un blog sobre accesibilidad al agua",
         "navHome": "Home",
         "navProjeto": "Proyecto",
         "navSobreNos": "Sobre nosotros",
-        "placeHolderSearch": "Buscar publicaciones"
+        "placeHolderSearch": "Buscar publicaciones",
+        "post": {
+            "imgSrc": "assets/img/torneira.jpg",
+            "headerText": "Problemas de accesibilidad en Brasil",
+            "dateText": "01/01/2024",
+            "bodyText": "Brasil enfrenta desafíos significativos en la distribución de agua potable. La falta de infraestructura y la desigualdad social agravan la situación. Muchas comunidades, especialmente en áreas rurales y periferias urbanas, no tienen acceso adecuado a este recurso vital. Los proyectos de mejora son esenciales para garantizar que todos los brasileños puedan disfrutar de agua limpia y segura."
+        }
     }
 }

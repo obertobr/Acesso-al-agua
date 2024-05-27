@@ -9,10 +9,11 @@
 }
 
 body{
+  position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100vw;
-  min-height: 150vh;
+  min-height: calc(100vh - 50px);
   background-color: rgb(191, 198, 216);
 }
 
