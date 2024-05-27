@@ -79,7 +79,7 @@ nav>select:hover {
 }
 
 
-nav > select option {
+nav > select > option {
     color: black;
     background-color: white;
 }
@@ -149,6 +149,6 @@ nav > select option {
 }
 
 #search > button:hover {
-    background-color: rgb(140, 191, 230);
+    background-color: rgb(147, 200, 241);
     cursor: pointer;
 }
