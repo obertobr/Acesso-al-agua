@@ -1,0 +1,32 @@
+{
+    "portugues": {
+       "titlePT": "Título em Português",
+       "titleEN": "Título em Inglês",
+       "titleES": "Título em Espanhol",
+       "textPT": "Texto em Português",
+       "textEN": "Texto em Inglês",
+       "textES": "Texto em Espanhol",
+       "url": "URL da imagem",
+       "button": "Criar"
+    },
+    "english": {
+       "titlePT": "Title in Portuguese",
+       "titleEN": "Title in English",
+       "titleES": "Title in Spanish",
+       "textPT": "Text in Portuguese",
+       "textEN": "Text in English",
+       "textES": "Text in Spanish",
+       "url": "Image URL",
+       "button": "Create"
+    },
+    "espanol": {
+       "titlePT": "Título en portugués",
+       "titleEN": "Título en inglés",
+       "titleES": "Título en español",
+       "textPT": "Texto en portugués",
+       "textEN": "Texto en inglés",
+       "textES": "Texto en español",
+       "url": "URL de la imagen",
+       "button": "Crear"
+    }
+}

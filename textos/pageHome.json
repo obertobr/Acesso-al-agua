@@ -4,6 +4,7 @@
         "subtitulo": "Um blog sobre a acessibilidade da água",
         "navHome": "Home",
         "navSobreNos": "Sobre Nós",
+        "navCriarPost": "Criar post",
         "placeHolderSearch": "Buscar posts"
     },
     "english": {
@@ -11,6 +12,7 @@
         "subtitulo": "A blog about water accessibility",
         "navHome": "Home",
         "navSobreNos": "About",
+        "navCriarPost": "Create post",
         "placeHolderSearch": "Search posts"
     },
     "espanol": {
@@ -18,6 +20,7 @@
         "subtitulo": "Un blog sobre accesibilidad al agua",
         "navHome": "Home",
         "navSobreNos": "Sobre nosotros",
+        "navCriarPost": "Crear publicación",
         "placeHolderSearch": "Buscar publicaciones"
     }
 }

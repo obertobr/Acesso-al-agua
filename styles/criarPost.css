@@ -1,0 +1,76 @@
+#postMain{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+}
+
+.form-group{
+    width: 600px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    width: 30%;
+    height: 100%;
+    background-color: #3f4582;
+    margin-top: 2px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input {
+    border: 0.2px solid rgba(0, 0, 0, 0.349);
+    border-radius: 5px;
+    width: 500px;
+    height: 30px;
+    text-indent: 5px;
+    outline: 0;
+    padding: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+textarea{
+    border: 0.2px solid rgba(0, 0, 0, 0.349);
+    border-radius: 5px;
+    width: 500px;
+    height: 60px;
+    text-indent: 5px;
+    outline: 0;
+    resize: none;
+    padding: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.create-button {
+    width: 200px;
+    padding: 0.75em 1.5em;
+    margin-top: 1em;
+    background-color: #5e4caf; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.create-button:hover {
+    background-color: #443681; 
+}
+
+.create-button:active {
+    transform: scale(0.9);
+}

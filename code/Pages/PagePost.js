@@ -63,8 +63,15 @@ export default class PagePost {
             PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),Pages.SOBRE_NOS)
         })
 
+        const criarPostsLink = document.createElement('a');
+        criarPostsLink.textContent = textos[idioma].navCriarPost;
+        criarPostsLink.addEventListener("click", () => {
+            PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),Pages.CRIAR_POST)
+        })
+
         navLinksDiv.appendChild(homeLink);
         navLinksDiv.appendChild(aboutLink);
+        navLinksDiv.appendChild(criarPostsLink);
 
         nav.appendChild(navLinksDiv);
 
