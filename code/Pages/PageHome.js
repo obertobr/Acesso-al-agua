@@ -102,6 +102,9 @@ export default class PageHome {
         input.placeholder = textos[idioma].placeHolderSearch;
 
         const button = document.createElement('button');
+        button.addEventListener("click", () => {
+            this.updatePageContent(idioma, input.value);
+        })
 
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -127,8 +130,7 @@ export default class PageHome {
         header.appendChild(titleDiv);
 
         div.appendChild(header)
-        div.appendChild(await this.createPageContent(idioma,textos))
-
+        div.appendChild(await this.createPageContent(idioma))
 
         return div;
     }
@@ -185,6 +187,54 @@ export default class PageHome {
         div.appendChild(footer)
 
         return div
+    }
+
+    static updatePageContent = async (idioma, search) => {
+        const posts = await ApiUtil.getPosts(idioma, search);
+
+        const main = document.createElement('main');
+    
+        posts.forEach((data, index) => {
+            const article = document.createElement('article');
+    
+            const img = document.createElement('img');
+            img.src = data.img;
+            img.alt = '';
+    
+            const textsArticle = document.createElement('div');
+            textsArticle.className = 'textsArticle';
+    
+            const textsArticleHeader = document.createElement('div');
+            textsArticleHeader.className = 'textsArticleHeader';
+    
+            const h3 = document.createElement('h3');
+            h3.textContent = data.headerText;
+    
+            const dateP = document.createElement('p');
+            dateP.textContent = data.dateText;
+    
+            textsArticleHeader.appendChild(h3);
+            textsArticleHeader.appendChild(dateP);
+    
+            const bodyP = document.createElement('p');
+            bodyP.textContent = data.bodyText.replace(/<[^>]*>/g, '');
+    
+            textsArticle.appendChild(textsArticleHeader);
+            textsArticle.appendChild(bodyP);
+    
+            article.appendChild(img);
+            article.appendChild(textsArticle);
+
+            article.addEventListener("click", () => {
+                PageUtil.carregarPost(LanguageUtil.getCurrentLanguage(),Pages.POST, data.id)
+            })
+    
+            main.appendChild(article);
+        });
+
+        const content = document.querySelector("main");
+        content.innerText = "";
+        content.appendChild(main)
     }
 
 }
