@@ -1,3 +1,4 @@
+import ApiUtil from "../Utils/ApiUtil.js";
 import JsonUtil from "../Utils/JsonUtil.js";
 import LanguageUtil from "../Utils/LanguageUtil.js";
 import Languages from "../Utils/Languages.js";
@@ -138,9 +139,48 @@ export default class PageCriarPost {
         const createButton = document.createElement('button');
         createButton.textContent = textos[idioma].button;
         createButton.classList.add('create-button');
-        createButton.addEventListener('click', () => {
-            // Função de criação do post
-            alert('Post criado!');
+        createButton.addEventListener('click', async () => {
+            const url = urlInput.value;
+            const textoEspanhol = textInputEs.value;
+            const textoPortugues = textInputPt.value;
+            const textoIngles = textInputEn.value;
+            const tituloEspanhol = titleInputEs.value
+            const tituloPortugues =  titleInputPt.value
+            const tituloIngles = titleInputEn.value;
+
+            if(url && textoEspanhol && textoPortugues && textoIngles && tituloEspanhol && tituloPortugues && tituloIngles){
+                await ApiUtil.addPost(
+                    {
+                        img: url, 
+                        portugues: {
+                            headerText: tituloPortugues, 
+                            bodyText: textoPortugues
+                        },
+                        english: {
+                            headerText: tituloIngles,
+                            bodyText: textoIngles
+                        },
+                        espanol: {
+                            headerText: tituloEspanhol,
+                            bodyText: textoEspanhol
+                        }
+                    }
+                )
+
+                urlInput.value = ""
+                textInputEs.value = ""
+                textInputPt.value = ""
+                textInputEn.value = ""
+                titleInputEs.value = ""
+                titleInputPt.value = ""
+                titleInputEn.value = ""
+                urlInput.focus()
+                alert("criado!")
+            }else{
+                alert("Você deve preencher todos os campos!")
+            }
+
+            
         });
 
         main.appendChild(createButton);
