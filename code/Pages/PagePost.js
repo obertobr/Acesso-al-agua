@@ -4,6 +4,7 @@ import LocalStorageUtil from "../Utils/LocalStorageUtil.js";
 import Languages from "../Utils/Languages.js";
 import PageUtil from "../Utils/PageUtil.js";
 import Pages from "../Utils/Pages.js";
+import ApiUtil from "../Utils/ApiUtil.js";
 
 export default class PagePost {
     static getPage = async (idioma) => {
@@ -13,8 +14,7 @@ export default class PagePost {
             PageUtil.carregarPagina(LanguageUtil.getCurrentLanguage(),Pages.HOME)
         }
 
-        const posts = await JsonUtil.convertFileJsonByName("posts");
-        const post = posts[postId]
+        const post = await ApiUtil.getPost(idioma, postId)
 
         // Cria o elemento div principal
         const div = document.createElement('div');
@@ -82,9 +82,9 @@ export default class PagePost {
 
         const postDiv = document.createElement('div');
         const img = document.createElement('img');
-        img.src = post.imgSrc;
+        img.src = post.img;
         const h1 = document.createElement('h1');
-        h1.textContent = post[idioma].headerText;
+        h1.textContent = post.headerText;
 
         postDiv.appendChild(img);
         postDiv.appendChild(h1);
@@ -92,7 +92,7 @@ export default class PagePost {
         postContainer.appendChild(postDiv);
 
         const range = document.createRange();
-        const fragment = range.createContextualFragment(post[idioma].bodyText);
+        const fragment = range.createContextualFragment(post.bodyText);
         postContainer.appendChild(fragment);
 
         div.appendChild(postContainer);

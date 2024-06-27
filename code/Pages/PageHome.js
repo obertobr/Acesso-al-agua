@@ -1,3 +1,4 @@
+import ApiUtil from "../Utils/ApiUtil.js";
 import JsonUtil from "../Utils/JsonUtil.js";
 import LanguageUtil from "../Utils/LanguageUtil.js";
 import Languages from "../Utils/Languages.js";
@@ -133,7 +134,7 @@ export default class PageHome {
     }
 
     static createPageContent = async (idioma) => {
-        const posts = await JsonUtil.convertFileJsonByName("posts");
+        const posts = await ApiUtil.getPosts(idioma);
 
         const main = document.createElement('main');
     
@@ -141,7 +142,7 @@ export default class PageHome {
             const article = document.createElement('article');
     
             const img = document.createElement('img');
-            img.src = data.imgSrc;
+            img.src = data.img;
             img.alt = '';
     
             const textsArticle = document.createElement('div');
@@ -151,7 +152,7 @@ export default class PageHome {
             textsArticleHeader.className = 'textsArticleHeader';
     
             const h3 = document.createElement('h3');
-            h3.textContent = data[idioma].headerText;
+            h3.textContent = data.headerText;
     
             const dateP = document.createElement('p');
             dateP.textContent = data.dateText;
@@ -160,7 +161,7 @@ export default class PageHome {
             textsArticleHeader.appendChild(dateP);
     
             const bodyP = document.createElement('p');
-            bodyP.textContent = data[idioma].bodyText.replace(/<[^>]*>/g, '');
+            bodyP.textContent = data.bodyText.replace(/<[^>]*>/g, '');
     
             textsArticle.appendChild(textsArticleHeader);
             textsArticle.appendChild(bodyP);
@@ -169,7 +170,7 @@ export default class PageHome {
             article.appendChild(textsArticle);
 
             article.addEventListener("click", () => {
-                PageUtil.carregarPost(LanguageUtil.getCurrentLanguage(),Pages.POST, index)
+                PageUtil.carregarPost(LanguageUtil.getCurrentLanguage(),Pages.POST, data.id)
             })
     
             main.appendChild(article);
