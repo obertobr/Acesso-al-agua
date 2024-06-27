@@ -134,7 +134,7 @@ export default class PageHome {
     }
 
     static createPageContent = async (idioma) => {
-        const posts = await ApiUtil.getPosts(idioma);
+        const posts = await ApiUtil.getPosts(idioma,"");
 
         const main = document.createElement('main');
     

@@ -15,8 +15,13 @@ switch($request_method) {
             $language = $_GET["language"];
             getPost($id, $language);
         } else {
+            if(empty($_GET["search"])){
+                $search = "";
+            } else {
+                $search = $_GET["search"];
+            }
             $language = $_GET["language"];
-            getPosts($language);
+            getPosts($language, $search);
         }
         break;
     case 'POST':
@@ -31,7 +36,7 @@ switch($request_method) {
         break;
 }
 
-function getPosts($language) {
+function getPosts($language, $search) {
     global $pdo;
 
     $query = "SELECT id FROM language WHERE name = :language";
@@ -48,9 +53,12 @@ function getPosts($language) {
     $query = "SELECT p.id, p.img, p.date, pc.headerText, pc.bodyText 
               FROM post p 
               JOIN postcontent pc ON p.id = pc.postID
-              WHERE pc.languageID = :language_id";
+              WHERE pc.languageID = :language_id
+              AND (pc.headerText LIKE :search OR pc.bodyText LIKE :search)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':language_id', $language_id, PDO::PARAM_INT);
+    $searchTerm = '%' . $search . '%';
+    $stmt->bindParam(':search', $searchTerm, PDO::PARAM_STR);
     $stmt->execute();
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($posts);

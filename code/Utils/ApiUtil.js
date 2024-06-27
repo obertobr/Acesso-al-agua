@@ -1,8 +1,8 @@
 export default class ApiUtil {
 
-    static getPosts = async (language) => {
+    static getPosts = async (language, search) => {
 
-       return await fetch(`./back-end/api.php?language=${language}`)
+       return await fetch(`./back-end/api.php?language=${language}&search=${search}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText)
