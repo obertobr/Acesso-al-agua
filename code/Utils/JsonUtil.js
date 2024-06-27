@@ -1,6 +1,6 @@
 export default class JsonUtil {
 
-    static pathTextos = "../textos/"
+    static pathTextos = "./textos/"
 
     static convertFileJsonByName = async (name) => {
         let dados = []
